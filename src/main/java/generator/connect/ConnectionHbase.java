@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.hadoop.conf.Configuration;
@@ -108,12 +109,12 @@ public class ConnectionHbase {
                 }
             }
         } catch (IOException e) {
-            log.info("Failed to load hbase configuration files", e);
+//            log.info("Failed to load hbase configuration files", e);
         }
         try {
             Class.forName("org.apache.phoenix.jdbc.PhoenixDriver");
         } catch (Exception e) {
-            log.info("Can not find jdbc driver");
+//            log.info("Can not find jdbc driver");
         }
 
         StringBuilder builder = new StringBuilder("jdbc:phoenix:");
@@ -127,7 +128,7 @@ public class ConnectionHbase {
         }
         final String phoenixJdbcUrl = builder.toString();
 
-        log.info("Start to connect server...");
+//        log.info("Start to connect server...");
 
         Connection conn = null;
         try {
@@ -151,7 +152,7 @@ public class ConnectionHbase {
 //			}
 
         } catch(Exception e) {
-            log.info("Failed to connect phoenix", e);
+//            log.info("Failed to connect phoenix", e);
         }
         return conn;
     }
@@ -160,7 +161,7 @@ public class ConnectionHbase {
         try{
             connection.createStatement().execute(sql);
         }catch (Exception e) {
-            log.error(e.getMessage());
+//            log.error(e.getMessage());
         }
 
     }
@@ -183,7 +184,7 @@ public class ConnectionHbase {
                 result.add(row);
             }
         }catch (Exception e) {
-            log.error(e.getMessage());
+//            log.error(e.getMessage());
         }
         return result;
     }
