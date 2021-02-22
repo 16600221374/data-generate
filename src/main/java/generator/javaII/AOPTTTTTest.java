@@ -24,6 +24,7 @@ public class AOPTTTTTest {
 
     }
 
+
     @Before(value = "pointCut()")
     private void beforeMethod(JoinPoint joinPoint){
         System.out.println("@Before前置通知:"+ Arrays.toString(joinPoint.getArgs()));
